@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    box-sizing:border-box;
+}
+
+.container{
+    width:100%;
+    min-height:100vh;
+    background: linear-gradient(135deg, #153677 , #4e085f);
+    padding:10px;
+
+}
+
+/* the padding here is used so that the text doesnt stick to edges of the container */
+
+/* the width stretches across the entire screen and min height is according to screen szie
+
+/* background: linear-gradient(135deg, #153677, #4e085f) → gives a diagonal gradient background 
+starting at 135°, transitioning from a dark navy-blue (#153677) to a deep purple (#4e085f). */
+
+
+
+.to-do{
+    width:100%; /* makes the div take the entire space of its parent */
+    max-width: 540px;  /* dont let it go above this level, this is good for centering a box */
+    margin: 100px auto 20px; /* auto centre horizontally */
+    padding: 40px 30px 70px; /* this is the inner spacing */
+    border-radius:10px; /* rounding the corners */
+}
+
+
+
