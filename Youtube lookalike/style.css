@@ -1,0 +1,76 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    box-sizing: border-box;    /* to include padding and border in element's total width and height */
+}
+
+
+/* to remove the underline from links */
+a{
+    text-decoration: none;
+    color: #5a5a5a;
+
+}
+
+
+img{
+
+    cursor: pointer;
+
+}
+
+.flex-div{
+    display:flex; /* to make child elements in a row  */
+    align-items: center;  /* to align child elements vertically center */
+
+}
+
+
+nav{
+
+    padding: 10px 2%; /* 10px top and bottom , 2% left and right ( here percent is based on width of container e.g
+    if the container is 1000px then 2% would pad from left and right 20px )*/
+
+    justify-content: space-between; /* to give space between child elements  */
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* to give shadow effect ( the first two values show that it is disabled for both offset-x 
+    offset-y....if we give a negative value then it causes a shadow to the left and bottom and vice versa..the third value is to see how 
+    sharp the shadow gets..10px is blurred shadow radius and 0 is sharp */
+
+    background: #fff; /* to give white background to navbar */
+
+    position: static; /* to make the navbar stay at the top when we scroll down the page */
+    top: 0;  /* for future proofing, as the position can be changed from static ahead */
+
+
+
+    /* when we use position static then the element goes to the top of the page but when we scroll down it 
+    scrolls away with the page so to avoid that we use position fixed...when we use static then top and left
+    properties don't work but when we use fixed it works...fixed makes the element stay at the same position*/
+
+    z-index: 10;
+
+    /* the z-index property specifies the stack order of an element. An element with a greater stack order is always in front of an element with a lower stack order.
+    Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)
+    in ez words: if a div comes before another div and has a natural right to overlap it...we can still set the z-index to make the latter box overlap it
+    e.g giving the first box an index of 1 and the second an index of 2 */
+
+
+
+}
+
+
+.nav-right img{
+    width: 25px; /* using pixel would not move the image when we resize as compared to % */
+    margin-right: 25px;
+}
+
+
+ .nav-right .user-icon {
+    border-radius: 50%; /* to make the image circular */
+    width:35px;
+    margin-right: 0px;
+}
+
