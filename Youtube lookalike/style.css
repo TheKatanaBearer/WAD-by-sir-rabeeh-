@@ -41,7 +41,7 @@ nav{
 
     background: #fff; /* to give white background to navbar */
 
-    position: static; /* to make the navbar stay at the top when we scroll down the page */
+    position: sticky; /* to make the navbar stay at the top when we scroll down the page */
     top: 0;  /* for future proofing, as the position can be changed from static ahead */
 
 
@@ -56,6 +56,16 @@ nav{
     Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)
     in ez words: if a div comes before another div and has a natural right to overlap it...we can still set the z-index to make the latter box overlap it
     e.g giving the first box an index of 1 and the second an index of 2 */
+
+
+
+    /* Difference between position fixed and sticky:
+    sticky is a hybrid of relative and fixed positioning. It behaves like relative until a defined scroll position is reached, then it becomes fixed.
+    Fixed positioning stays fixed no matter what the case is...while sticky is fixed but is limited by the container that holds it
+    In this case it is the body element that holds it so it will be fixed to the top of the body element
+    */
+
+
 
 
 
@@ -126,4 +136,45 @@ nav{
 .sidebar{
     background: #fff;
     width: 15%;
+    height:100vh; /* to make the sidebar take the full height of the page */
+    position: fixed; /* to make the sidebar stay at the same position when we scroll down the page */
+    padding-left: 2%; /* to give padding from left side */;
+    padding-top: 20px;
+
+    /* the reason for why we gave the padding left 2% is because the horizontal side is mostly adjusted by different screen sizes...but the vertical
+    is fixed to be 20px so that the sidebar doesnt go to down */
+
+
+}
+
+
+.shortcut-links a img{
+
+    width: 20px;
+    margin-right: 20px; /* to give space between the image and the text */
+
+}
+
+.shortcut-links a{
+
+    display:flex; /* to make the image and text in a row */
+    align-items: center; /* to align the image and text vertically center */
+    margin-bottom: 20px; /* to give space between the links */
+    width: fit-content;
+
+    /* Reason for "fit content": by default the anchor tag, div and p tag take up the full width of the container
+    so to avoid that we use fit-content which makes the width of the element just enough to fit the content inside it
+    e.g if i write <div>Hello</div> then that div will take up the whole screen width but if i write <div style="width:fit-content">Hello</div>
+    then the div will take up just enough space to fit the content inside it (it would wrap around hello) */
+
+    flex-wrap: wrap; /* to make the text go to the next line if it exceeds the width of the container */
+    
+    /* what is flex-wrap ? 
+    flex-wrap: wrap enables the elements to wrap onto multiple lines, from top to bottom if necessary.
+    flex-wrap: nowrap (default) keeps all elements on a single line, potentially causing overflow
+    flex-wrap: wrap-reverse utilizes the upper line first when one line is done, elements will wrap onto multiple lines from bottom to top
+    */
+
+
+
 }
