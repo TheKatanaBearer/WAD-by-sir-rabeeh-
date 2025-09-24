@@ -74,3 +74,56 @@ nav{
     margin-right: 0px;
 }
 
+
+.nav-left .menu-icon{
+    width:22px;
+    margin-right: 25px;
+}
+
+
+.nav-left .logo{
+
+    width:130px;
+
+}
+
+
+.nav-middle .mic-icon{
+    width: 16px;
+
+}
+
+.nav-middle .search-box{
+
+    border: 1px solid #ccc; 
+    margin-right: 15px;
+    padding:8px 12px;
+    border-radius: 25px;
+  
+}
+
+
+.nav-middle .search-box input{
+
+    width:400px;
+    border:0; /* to remove the default border of input box */
+    outline:none; /* to remove the blue border that appears when we click on the input box */
+    background: transparent; /* to make the background of input box transparent */
+
+}
+
+
+.nav-middle .search-box img{
+    width:15px;
+}
+
+
+
+
+
+/* this is the sidebar section */
+
+.sidebar{
+    background: #fff;
+    width: 15%;
+}
