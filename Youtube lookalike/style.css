@@ -178,3 +178,174 @@ nav{
 
 
 }
+
+
+.shortcut-links a:first-child{
+
+    color:#ed3833;
+}
+
+
+.sidebar hr{    
+
+    border:0;   /*this makes the hr disappear for it is a border and nothing else */
+    height:1px; /* gives it a 1px height at all times so that its barely visible */
+    background: #ccc; /* for visibility */
+    width: 85%; /*not the full container...just most of it */
+}
+
+
+.Subscribed-list h3{
+    font-size: 13px;
+    margin: 20px 0;
+    color: #5a5a5a;
+
+}
+
+.Subscribed-list a{
+    display:flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    width:fit-content; /* unlike width 100% which stretches the width to its fullest or auto which 
+    may stretch depending on parent rules...fit-content hugs the content tightly...*/
+
+
+}
+
+/* keep in mind that 'a' only wraps around the link whereas div is block level and takes up the
+entire width of its container...we can also make 'a' behave like a div by giving the property
+
+a{
+display:block;
+}
+
+*/
+
+
+.Subscribed-list a img{
+
+    width: 25px;
+    border-radius: 50%;
+    margin-right: 19px;
+
+
+}
+
+.small-sidebar{
+    width:5%;
+}
+
+
+.small-sidebar a p{
+    display: none;      /* now upon clicking the text disappears */
+
+
+}
+
+
+.small-sidebar h3{
+    display: none;    /* disappears upon clicking */
+}
+
+.small-sidebar hr{
+
+    margin-bottom: 20px;
+
+}
+
+
+/*  --------------------------------main------------------*/
+.container{
+
+    background:#f9f9f9;
+    padding-left: 17%;
+    padding-right:2%;
+    padding-top:20px;
+    padding-bottom:20px;
+  
+
+
+}
+
+.banner{
+
+    width:100%; /* fills its container */
+
+}
+
+.banner img{
+
+    width:100%;     /* fills the image with the container */
+    border-radius: 8px;
+
+}
+
+
+
+.list-container{
+
+    display:grid;
+    /* this is the first time we are using grid...grid is another display method like flexbox...
+    the difference is that it is two dimensional unlike flex box which is one dimensional..either vertical 
+    horizontal */
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /*above is the most important grid property...repeat allows this to be utilized again and again.
+    "auto-fit" is to make columns as much as can fit in our screen.
+    minmax(250px,1fr) means that each column can stretch upto 250px but cant be less than a fraction 
+    of leftover space */
+
+    grid-column-gap: 16px;  /* horizontal space between columns */
+
+    grid-row-gap: 30px;     /* vertical space between rows */
+
+    margin-top: 15px;
+}
+
+
+
+
+.vid-list .thumbnail1{
+    width:100%;
+    border-radius: 5%;
+}
+
+
+
+.vid-list .flex-div{
+
+    align-items:flex-start;  /* this is a flex-box property which aligns according to the cross axis
+    in a row layout -> items stick to the top of the container
+    in a column layout -> items stick to the left of the container 
+    This property would affect its immedite children only*/
+
+    margin-top: 7px;
+
+}
+
+.vid-list .flex-div img{
+
+    width:35px;
+    margin-right:10px;
+    border-radius:50%;
+
+}
+
+
+.vid-info{
+    color: #5a5a5a;
+    font-size: 13px;
+
+}
+
+.vid-info a{
+
+    color: #000;
+    font-weight: 600;
+    display: block;   /* IMPORTANT REASON FOR MAKING IT BLOCK: 'a' and 'span' are generally not block elements
+    ..giving it this property would make it take the full width of its container and thus the new element would
+    start from the next line...just like div it takes up the whole of its container..*/
+    
+    margin-bottom: 5px;
+}
