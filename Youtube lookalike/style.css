@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 *{
     margin: 0;
@@ -538,3 +539,545 @@ hr{
 
 
 
+=======
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    box-sizing: border-box;    /* to include padding and border in element's total width and height */
+}
+
+
+/* to remove the underline from links */
+a{
+    text-decoration: none;
+    color: #5a5a5a;
+
+}
+
+
+img{
+
+    cursor: pointer;
+
+}
+
+.flex-div{
+    display:flex; /* to make child elements in a row  */
+    align-items: center;  /* to align child elements vertically center */
+
+}
+
+
+nav{
+
+    padding: 10px 2%; /* 10px top and bottom , 2% left and right ( here percent is based on width of container e.g
+    if the container is 1000px then 2% would pad from left and right 20px )*/
+
+    justify-content: space-between; /* to give space between child elements  */
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* to give shadow effect ( the first two values show that it is disabled for both offset-x 
+    offset-y....if we give a negative value then it causes a shadow to the left and bottom and vice versa..the third value is to see how 
+    sharp the shadow gets..10px is blurred shadow radius and 0 is sharp */
+
+    background: #fff; /* to give white background to navbar */
+
+    position: sticky; /* to make the navbar stay at the top when we scroll down the page */
+    top: 0;  /* for future proofing, as the position can be changed from static ahead */
+
+
+
+    /* when we use position static then the element goes to the top of the page but when we scroll down it 
+    scrolls away with the page so to avoid that we use position fixed...when we use static then top and left
+    properties don't work but when we use fixed it works...fixed makes the element stay at the same position*/
+
+    z-index: 10;
+
+    /* the z-index property specifies the stack order of an element. An element with a greater stack order is always in front of an element with a lower stack order.
+    Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)
+    in ez words: if a div comes before another div and has a natural right to overlap it...we can still set the z-index to make the latter box overlap it
+    e.g giving the first box an index of 1 and the second an index of 2 */
+
+
+
+    /* Difference between position fixed and sticky:
+    sticky is a hybrid of relative and fixed positioning. It behaves like relative until a defined scroll position is reached, then it becomes fixed.
+    Fixed positioning stays fixed no matter what the case is...while sticky is fixed but is limited by the container that holds it
+    In this case it is the body element that holds it so it will be fixed to the top of the body element
+    */
+
+
+
+
+
+}
+
+
+.nav-right img{
+    width: 25px; /* using pixel would not move the image when we resize as compared to % */
+    margin-right: 25px;
+}
+
+
+ .nav-right .user-icon {
+    border-radius: 50%; /* to make the image circular */
+    width:35px;
+    margin-right: 0px;
+}
+
+
+.nav-left .menu-icon{
+    width:22px;
+    margin-right: 25px;
+}
+
+
+.nav-left .logo{
+
+    width:130px;
+
+}
+
+
+.nav-middle .mic-icon{
+    width: 16px;
+
+}
+
+.nav-middle .search-box{
+
+    border: 1px solid #ccc; 
+    margin-right: 15px;
+    padding:8px 12px;
+    border-radius: 25px;
+  
+}
+
+
+.nav-middle .search-box input{
+
+    width:400px;
+    border:0; /* to remove the default border of input box */
+    outline:none; /* to remove the blue border that appears when we click on the input box */
+    background: transparent; /* to make the background of input box transparent */
+
+}
+
+
+.nav-middle .search-box img{
+    width:15px;
+}
+
+
+
+
+
+/* this is the sidebar section */
+
+.sidebar{
+    background: #fff;
+    width: 15%;
+    height:100vh; /* to make the sidebar take the full height of the page */
+    position: fixed; /* to make the sidebar stay at the same position when we scroll down the page */
+    padding-left: 2%; /* to give padding from left side */;
+    padding-top: 20px;
+
+    /* the reason for why we gave the padding left 2% is because the horizontal side is mostly adjusted by different screen sizes...but the vertical
+    is fixed to be 20px so that the sidebar doesnt go to down */
+
+
+}
+
+
+.shortcut-links a img{
+
+    width: 20px;
+    margin-right: 20px; /* to give space between the image and the text */
+
+}
+
+.shortcut-links a{
+
+    display:flex; /* to make the image and text in a row */
+    align-items: center; /* to align the image and text vertically center */
+    margin-bottom: 20px; /* to give space between the links */
+    width: fit-content;
+
+    /* Reason for "fit content": by default the anchor tag, div and p tag take up the full width of the container
+    so to avoid that we use fit-content which makes the width of the element just enough to fit the content inside it
+    e.g if i write <div>Hello</div> then that div will take up the whole screen width but if i write <div style="width:fit-content">Hello</div>
+    then the div will take up just enough space to fit the content inside it (it would wrap around hello) */
+
+    flex-wrap: wrap; /* to make the text go to the next line if it exceeds the width of the container */
+    
+    /* what is flex-wrap ? 
+    flex-wrap: wrap enables the elements to wrap onto multiple lines, from top to bottom if necessary.
+    flex-wrap: nowrap (default) keeps all elements on a single line, potentially causing overflow
+    flex-wrap: wrap-reverse utilizes the upper line first when one line is done, elements will wrap onto multiple lines from bottom to top
+    */
+
+
+
+}
+
+
+.shortcut-links a:first-child{
+
+    color:#ed3833;
+}
+
+
+.sidebar hr{    
+
+    border:0;   /*this makes the hr disappear for it is a border and nothing else */
+    height:1px; /* gives it a 1px height at all times so that its barely visible */
+    background: #ccc; /* for visibility */
+    width: 85%; /*not the full container...just most of it */
+}
+
+
+.Subscribed-list h3{
+    font-size: 13px;
+    margin: 20px 0;
+    color: #5a5a5a;
+
+}
+
+.Subscribed-list a{
+    display:flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    width:fit-content; /* unlike width 100% which stretches the width to its fullest or auto which 
+    may stretch depending on parent rules...fit-content hugs the content tightly...*/
+
+
+}
+
+/* keep in mind that 'a' only wraps around the link whereas div is block level and takes up the
+entire width of its container...we can also make 'a' behave like a div by giving the property
+
+a{
+display:block;
+}
+
+*/
+
+
+.Subscribed-list a img{
+
+    width: 25px;
+    border-radius: 50%;
+    margin-right: 19px;
+
+
+}
+
+.small-sidebar{
+    width:5%;
+}
+
+
+.small-sidebar a p{
+    display: none;      /* now upon clicking the text disappears */
+
+
+}
+
+
+.small-sidebar h3{
+    display: none;    /* disappears upon clicking */
+}
+
+.small-sidebar hr{
+
+    margin-bottom: 20px;
+
+}
+
+
+/*  --------------------------------main------------------*/
+.container{
+
+    background:#f9f9f9;
+    padding-left: 17%;
+    padding-right:2%;
+    padding-top:20px;
+    padding-bottom:20px;
+  
+}
+
+
+.large-container{     /* this is a new container specially for the purpose of increasing the size of the container
+                        once the side bar is minimized */
+
+    padding-left: 7%;
+
+                        
+
+
+}
+
+.banner{
+
+    width:100%; /* fills its container */
+
+}
+
+.banner img{
+
+    width:100%;     /* fills the image with the container */
+    border-radius: 8px;
+
+}
+
+
+
+.list-container{
+
+    display:grid;
+    /* this is the first time we are using grid...grid is another display method like flexbox...
+    the difference is that it is two dimensional unlike flex box which is one dimensional..either vertical 
+    horizontal */
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /*above is the most important grid property...repeat allows this to be utilized again and again.
+    "auto-fit" is to make columns as much as can fit in our screen.
+    minmax(250px,1fr) means that each column can stretch upto 250px but cant be less than a fraction 
+    of leftover space */
+
+    grid-column-gap: 16px;  /* horizontal space between columns */
+
+    grid-row-gap: 30px;     /* vertical space between rows */
+
+    margin-top: 15px;
+}
+
+
+
+
+.vid-list .thumbnail1{
+    width:100%;
+    border-radius: 5%;
+}
+
+
+
+.vid-list .flex-div{
+
+    align-items:flex-start;  /* this is a flex-box property which aligns according to the cross axis
+    in a row layout -> items stick to the top of the container
+    in a column layout -> items stick to the left of the container 
+    This property would affect its immedite children only*/
+
+    margin-top: 7px;
+
+}
+
+.vid-list .flex-div img{
+
+    width:35px;
+    margin-right:10px;
+    border-radius:50%;
+
+}
+
+
+.vid-info{
+    color: #5a5a5a;
+    font-size: 13px;
+
+}
+
+.vid-info a{
+
+    color: #000;
+    font-weight: 600;
+    display: block;   /* IMPORTANT REASON FOR MAKING IT BLOCK: 'a' and 'span' are generally not block elements
+    ..giving it this property would make it take the full width of its container and thus the new element would
+    start from the next line...just like div it takes up the whole of its container..*/
+    
+    margin-bottom: 5px;
+}
+
+
+/*-----------------------Media: to make it responisve------------------------*/
+
+@media(max-width:900px) {
+    
+    .menu-icon{
+
+        display: none;  /* display:none , is used to hide the targeted display */
+    }
+
+    .sidebar{
+        display: none;
+
+    }
+
+    .container, .large-container{       /*reason for this is because on mobile we have to keep the padding same on  
+                                        both sides otherwise it looks offset */
+
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
+
+    .nav-right img{
+        display:none;
+
+    }
+
+
+    .nav-right .user-icon{
+        display: block;  /* this overrides the display:none....it gives div qualities and makes the div take up full width */
+        width: 30px;
+
+    }
+    
+
+    .nav-middle .search-box input{
+
+        width:100px;
+    }
+
+    .nav-middle img{
+        display:none;
+    }
+
+
+    
+
+
+}
+
+
+/*----------------------------play-video html section-----------------------*/
+
+
+.video-container{
+
+    padding-left: 2%;       /* this overrides the prev 17% set in container */
+    
+
+
+}
+
+.row{
+    display:flex;
+}
+
+.right-sidebar{
+
+    flex-basis:30%;
+    margin-left: 1%;
+
+}
+
+.play-video video{
+    width:100%;
+    border-radius: 10px;
+
+}
+
+.side-video-list{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 8px;
+}
+
+
+.side-video-list img{
+    width:100%;
+    
+
+}
+
+.side-video-list .small-thumbnail{
+    flex-basis: 49%;
+
+}
+
+.side-video-list .vid-info{
+    flex-basis:49%;
+}
+
+
+.vid-title{
+    margin-bottom:15px;
+    padding-top:10px;   
+    
+}
+
+hr{
+    border: 0;
+    height: 1px;
+    background-color: grey;
+}
+
+.info{
+    display:flex;
+    align-items: center;
+    
+    gap: 50%;
+}
+
+
+.info .left-info{
+    display:flex;
+    margin-top: 15px;
+    gap:20px;
+    
+    align-items: center;
+}
+
+.info .left-info img{
+    border-radius: 50%;
+    width:30px;
+   
+
+
+}
+
+.info button{
+
+    border: 0;
+    color: white;
+    background: red;
+    font-weight: 800;
+    font-size:22px;
+    cursor: pointer;
+    padding: 8px 30px;
+    border-radius: 4px;
+    outline:0;
+
+
+}
+
+
+.info .right-info{
+
+    padding:10px;
+    
+    
+    width:10%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.info .right-info img{
+    width:25px;
+}
+
+
+
+
+
+
+
+
+
+>>>>>>> f51d1a5 (removed the lab)
