@@ -264,6 +264,15 @@ display:block;
     padding-top:20px;
     padding-bottom:20px;
   
+}
+
+
+.large-container{     /* this is a new container specially for the purpose of increasing the size of the container
+                        once the side bar is minimized */
+
+    padding-left: 7%;
+
+                        
 
 
 }
@@ -348,4 +357,55 @@ display:block;
     start from the next line...just like div it takes up the whole of its container..*/
     
     margin-bottom: 5px;
+}
+
+
+/*-----------------------Media: to make it responisve------------------------*/
+
+@media(max-width:900px) {
+    
+    .menu-icon{
+
+        display: none;  /* display:none , is used to hide the targeted display */
+    }
+
+    .sidebar{
+        display: none;
+
+    }
+
+    .container, .large-container{       /*reason for this is because on mobile we have to keep the padding same on  
+                                        both sides otherwise it looks offset */
+
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
+
+    .nav-right img{
+        display:none;
+
+    }
+
+
+    .nav-right .user-icon{
+        display: block;  /* this overrides the display:none....it gives div qualities and makes the div take up full width */
+        width: 30px;
+
+    }
+    
+
+    .nav-middle .search-box input{
+
+        width:100px;
+    }
+
+    .nav-middle img{
+        display:none;
+    }
+
+
+    
+
+
 }
