@@ -49,3 +49,82 @@ p{
 body{
     width:100%;
 }
+
+
+#header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 80px;
+    background: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+
+
+
+}
+
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;  /* made relative bcz its child is absolute */
+}
+
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition:0.3s ease;
+}
+
+
+#navbar li a:hover,
+#navbar li a.active{
+    color:#088178;
+    
+
+}
+
+
+/* using to make under line */
+#navbar li a.active::after,
+#navbar li a:hover::after{ 
+    content: "";    /* after doesnt work without content..so just keep it empty in this case */
+    width:30%;
+    height:2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;           /* these properties are used with position absolute..bottom here means
+                            that place the underline 4px below the parent element */
+    left: 20px;
+    
+}
+
+
+/*-----------------------------Hero section--------------------------*/
+
+#hero{
+    background-image: url("img/hero4.png");
+    height: 90vh;
+    width:100%;
+    background-position: top 25% right 0;
+    background-size: cover;     /* scales the background image so it cover the whole area..even if some parts are cropped */
+    padding: 0 80px;
+    
+    display: flex;    /* makes the hero section a flex container */
+    flex-direction: column;    /* makes the childern stack vertically one over another */
+    justify-content: center;    /* centres the content within the sections height */
+    align-items: flex-start;    /* horizontal alignment of the content to the left..the start of the container */
+
+}
+
+
