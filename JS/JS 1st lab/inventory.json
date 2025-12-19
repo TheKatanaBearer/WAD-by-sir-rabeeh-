@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Surgical Scalpel",
+    "category": "Cutting/Dissecting",
+    "quantity": 100,
+    "price": 12.5
+  },
+  {
+    "id": 2,
+    "name": "Hemostatic Forceps",
+    "category": "Clamping/Occlusion",
+    "quantity": 50,
+    "price": 25
+  },
+  {
+    "id": 3,
+    "name": "Iris Scissors",
+    "category": "Cutting/Dissecting",
+    "quantity": 75,
+    "price": 18
+  },
+  {
+    "id": 4,
+    "name": "Surgical Retractor",
+    "category": "Retracting/Exposing",
+    "quantity": 20,
+    "price": 45
+  },
+  {
+    "id": 5,
+    "name": "Needle Holder",
+    "category": "Suturing",
+    "quantity": 40,
+    "price": 30
+  },
+  {
+    "id": 6,
+    "name": "Sterile Gloves",
+    "category": "Accessories/Barrier",
+    "quantity": 1000,
+    "price": 0.5
+  },
+  {
+    "id": 7,
+    "name": "teeka",
+    "category": "dard",
+    "quantity": 50,
+    "price": 100000000000000000
+  }
+]
