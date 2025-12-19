@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // Load environment variables from .env file
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/public",express.static(path.join(process.cwd(), '/public')));
 
 const connectToDatabase = async ()=>{
     try {
