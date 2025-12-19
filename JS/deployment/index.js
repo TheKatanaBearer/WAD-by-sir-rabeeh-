@@ -27,7 +27,7 @@ connectToDatabase();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello, World! This is the deployment index.');
+    res.sendFile(path.join(__dirname, 'public', 'add.html'));
 });
 
 if (process.env.NODE_ENV !== 'production') {
