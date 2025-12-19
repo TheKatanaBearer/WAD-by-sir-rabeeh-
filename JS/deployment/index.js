@@ -27,7 +27,7 @@ connectToDatabase();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'add.html'));
+    res.send('Hello, World!');
 });
 
 if (process.env.NODE_ENV !== 'production') {
