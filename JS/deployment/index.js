@@ -39,6 +39,7 @@ const User = mongoose.model('User', userSchema ) || mongoose.model('User');
 
 app.get('/api/users', async (req,res)=>{
 try {
+  await connectToDatabase();
   const user_list = await User.find({}).select("+name +email -__v").lean();
   res.json(user_list);
 
@@ -53,7 +54,7 @@ try {
 // POST: save new user to MongoDB
 app.post('/api/users/add', async (req, res) => {
   try {
-
+    await connectToDatabase();
     const { name, email } = req.body;
     const newUser = new User({ name, email });
     await newUser.save();
