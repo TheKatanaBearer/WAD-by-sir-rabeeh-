@@ -3,42 +3,75 @@ const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
 
-// Load environment variables from .env file
+// Load environment variables from .env
 dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// Change this:
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // Serve public folder
 
-const connectToDatabase = async ()=>{
-    try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log('Connected to MongoDB');
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
-    }
-}
-
+// MongoDB connection
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log('Connected to MongoDB Atlas');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+  }
+};
 connectToDatabase();
 
-// Middleware to parse JSON requests
-app.use(express.json());
-
-app.get('/api', (req, res) => {
-    res.send('Hello, World!');
+// Define a Mongoose schema and model
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true }
 });
 
+const User = mongoose.model('User', userSchema);
+
+// Routes
+
+// GET: fetch all users from MongoDB
+app.get('/api', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json({ message: 'Users fetched successfully', data: users });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch users' });
+  }
+});
+
+// POST: save new user to MongoDB
+app.post('/api', async (req, res) => {
+  try {
+    const { name, email } = req.body;
+    const newUser = new User({ name, email });
+    await newUser.save();
+    res.json({ message: 'User saved to MongoDB Atlas!', data: newUser });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to save user' });
+  }
+});
+
+// Serve HTML form at root
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'add.html'));
+  res.sendFile(path.join(__dirname, 'public', 'add.html'));
 });
 
-if (process.env.NODE_ENV !== 'production') { 
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    });
+// Start server
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 }
 
-module.exports = app
+module.exports = app;
