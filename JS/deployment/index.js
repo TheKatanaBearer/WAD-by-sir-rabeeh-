@@ -66,7 +66,8 @@ app.post('/api/users/add', async (req, res) => {
 
 // Serve HTML form at root
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'add.html'));
+  
+  res.send("server is working....");
 });
 
 // Start server
