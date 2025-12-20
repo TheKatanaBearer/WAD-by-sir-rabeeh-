@@ -17,15 +17,13 @@ app.use(express.static(path.join(__dirname, 'public'))); // Serve public folder
 // MongoDB connection
 const connectToDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(process.env.MONGO_URI); // no extra options
     console.log('Connected to MongoDB Atlas');
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
   }
 };
+
 connectToDatabase();
 
 // Define a Mongoose schema and model
