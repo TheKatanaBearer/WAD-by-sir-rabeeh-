@@ -67,7 +67,7 @@ app.post('/api/users/add', async (req, res) => {
 // Serve HTML form at root
 app.get('/', (req, res) => {
   
-  res.send(`server is working with MONGO_URI=${process.env.MONGO_URI}`);
+  res.send(`server is working.......`);
 });
 
 // Start server
