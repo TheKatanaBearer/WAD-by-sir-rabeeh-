@@ -40,7 +40,7 @@ const User = mongoose.model('User', userSchema ) || mongoose.model('User');
 app.get('/api/users', async (req,res)=>{
 try {
   await connectToDatabase();
-  const user_list = await User.find({}).select("+name +email -__v").lean();
+  const user_list = await User.find({}).select("+name +email").lean();
   res.json(user_list);
 
 
@@ -68,7 +68,7 @@ app.post('/api/users/add', async (req, res) => {
 // Serve HTML form at root
 app.get('/', (req, res) => {
   
-  res.send(`server is working`);
+  res.send(`server is working..`);
 });
 
 // Start server
