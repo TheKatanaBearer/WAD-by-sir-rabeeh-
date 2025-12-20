@@ -46,7 +46,7 @@ try {
 
   
 } catch (error) {
-  res.json({ error : "failed to get user list"});
+  res.json({ error : `failed to get user list ${error}`});
 }
 });
 
@@ -68,7 +68,7 @@ app.post('/api/users/add', async (req, res) => {
 // Serve HTML form at root
 app.get('/', (req, res) => {
   
-  res.send(`server is working.......`);
+  res.send(`server is working`);
 });
 
 // Start server
