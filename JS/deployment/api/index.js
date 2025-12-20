@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Change this:
-app.use("/public", express.static(path.join(__dirname, 'public')));;
+app.use("/public", express.static(path.join(__dirname, 'public')));
 
 const connectToDatabase = async ()=>{
     try {
@@ -28,6 +28,10 @@ app.use(express.json());
 
 app.get('/api', (req, res) => {
     res.send('Hello, World!');
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'add.html'));
 });
 
 if (process.env.NODE_ENV !== 'production') { 
