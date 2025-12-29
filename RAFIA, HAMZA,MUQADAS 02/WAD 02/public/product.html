@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details</title>
+  <link rel="stylesheet" href="final.css" />
+
+  <style>
+    .details-wrap { padding: 40px 0; }
+    .details-card{
+      background:#fff;
+      border-radius:10px;
+      padding:20px;
+      display:grid;
+      gap:20px;
+      grid-template-columns: 1fr;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    @media (min-width: 850px){
+      .details-card{ grid-template-columns: 1fr 1fr; align-items:start; }
+    }
+    .details-img{
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:260px;
+      border-radius:8px;
+    }
+    .details-img img{
+      width:100%;
+      max-height:420px;
+      object-fit:contain;
+    }
+    .details-title{ font-size: 1.8rem; margin-bottom: 8px; }
+    .details-meta{ margin: 10px 0; }
+    .price{ font-weight: 800; margin: 12px 0; }
+    .buy-btn{
+      display:inline-block;
+      background:#1B2430;
+      color:#fff;
+      padding: 12px 18px;
+      border-radius: 2px;
+    }
+    .buy-btn:hover{ background:#157115; }
+    .muted{ color:#666; }
+  </style>
+</head>
+<body>
+
+  <div class="container details-wrap">
+    <div id="detailsRoot"></div>
+  </div>
+
+  <script>
+    function getParam(name){
+      return new URLSearchParams(window.location.search).get(name);
+      // this is used to provide this part ?user=katana&debug=true...the part ahead of the url
+      // URLSearchParams is a built-in browser API to handle query strings
+    }
+
+    async function loadDetails(){
+      const type = getParam("type");   // "featured" or "product"
+      const id = getParam("id");       // slug
+
+      const root = document.getElementById("detailsRoot");
+
+      if(!type || !id){
+        root.innerHTML = `<p class="muted">Missing URL parameters. Use: product.html?type=featured&id=knife-handle</p>`;
+        return;
+      }
+
+      // Decide API based on type
+      const apiUrl =
+        type === "featured"
+          ? `/api/featured/${encodeURIComponent(id)}`
+          : `/api/products/${encodeURIComponent(id)}`;
+
+      try{
+        const res = await fetch(apiUrl);
+
+        if(!res.ok){
+          root.innerHTML = `<p class="muted">Product not found.</p>`;
+          return;
+        }
+
+        const p = await res.json();
+
+        // Normalize fields (works even if some fields are missing)
+        const name = p.name || "Unnamed product";
+        const image = p.image || "";
+        const desc = p.description || "No description available.";
+        const rating = p.rating || "";
+        const category = p.category || "";
+        const price = (typeof p.price === "number") ? p.price : null;
+
+        // Build dynamic innerHTML (same look style as your cards/buttons)
+        root.innerHTML = `
+          <div class="details-card">
+            <div class="details-img">
+              <img src="${image}" alt="${name}">
+            </div>
+
+            <div class="details-info">
+              <h1 class="details-title">${name}</h1>
+
+              ${rating ? `<div class="stars">${rating}</div>` : ``}
+
+              <div class="details-meta">
+                ${category ? `<p class="muted"><strong>Category:</strong> ${category}</p>` : ``}
+                <p class="muted"><strong>Type:</strong> ${type}</p>
+              </div>
+
+              <p>${desc}</p>
+
+              ${price !== null ? `<div class="price">Price: ${price}</div>` : ``}
+
+              <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+                <a class="buy-btn" href="contact.html?product=${encodeURIComponent(name)}">Buy</a>
+                <a class="dark-btn" href="products.html">Back</a>
+              </div>
+            </div>
+          </div>
+        `;
+s
+      }catch(err){
+        console.error(err);
+        root.innerHTML = `<p class="muted">Error loading product.</p>`;
+      }
+    }
+
+    loadDetails();
+  </script>
+</body>
+</html>
